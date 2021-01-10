@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: timber-backend
-  name: timber-backend
+  name: timber-backend-np
 spec:
   ports:
   - port: 8080
