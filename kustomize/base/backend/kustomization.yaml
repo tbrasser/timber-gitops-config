@@ -3,4 +3,4 @@ resources:
   - service.yaml
 
 commonLabels:
-  app: timber-hamish
+  app: timber-backend
