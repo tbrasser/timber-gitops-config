@@ -1,0 +1,29 @@
+---
+name: Update Image Tag
+
+on:
+  repository_dispatch:
+    types: image-tag-update
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Replace image tag in Backend
+        if: ${{ github.event.client_payload.tag }}
+        run: |
+          sed -i "s@\(.*image:.*/.*:\).*@\1${{ github.event.client_payload.tag }}@" ${GITHUB_WORKSPACE}/kustomize/base/backend/deployment.yaml
+
+      - name: Commit the image tag change
+        uses: stefanzweifel/git-auto-commit-action@v4
+        if: ${{ github.event.client_payload.tag }}
+        with:
+          commit_message: Updated Backend image tag to -> ${{ github.event.client_payload.tag }}
+          branch: main
+          commit_options: '--no-verify --signoff'
+          repository: .
+          commit_user_name: CI Automation
+          commit_user_email: ci@example.com
+          commit_author: CI Automation <ci@example.com>
