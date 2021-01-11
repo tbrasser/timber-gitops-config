@@ -1,3 +1,3 @@
-# gitops-training-opsrepo
-An example ops repository for the Container Solutions GitOps training
+# Timber - GitOps Kustomize configuration
 
+Kustomize repository for deploying Timber (https://github.com/ContainerSolutions/timber)
