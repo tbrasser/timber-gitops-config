@@ -6,12 +6,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: timber-backend  
+      app: timber-backend
   template:
     spec:
       containers:
       - name: timber-backend
-        image: eu.gcr.io/container-solutions-workshops/timber/backend:v1.0
+        image: eu.gcr.io/container-solutions-workshops/timber/backend:v1.1
         ports:
         - containerPort: 8080
         env:
