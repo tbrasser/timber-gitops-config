@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: timber-backend
-        image: eu.gcr.io/container-solutions-workshops/timber/backend:v1.1
+        image: eu.gcr.io/container-solutions-workshops/timber/backend:v1.2
         ports:
         - containerPort: 8080
         env:
